@@ -1,10 +1,7 @@
-import java.util.Random;
 
 class Animal
 {
     private static final Animal [] animals = new Animal[5];
-
-    private static final Random randomIndex = new Random();
 
     private static int indexesFilled = 0;
 
@@ -15,16 +12,17 @@ class Animal
 
     public static Animal makeAnimal()
     {
-        if(indexesFilled< animals.length)
+        if(indexesFilled < animals.length)
         {
             animals[indexesFilled] = new Animal();
 
             return animals[indexesFilled++];
         }
+        else
+        {
+            return animals[indexesFilled++ % animals.length];
+        }
 
-        int index = randomIndex.nextInt(animals.length);
-
-        return animals[index];
     }
 }
 

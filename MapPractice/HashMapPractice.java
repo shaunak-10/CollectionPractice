@@ -11,6 +11,7 @@ public class HashMapPractice
     {
         HashMap<Integer,String> hashMap = new HashMap<>();
 
+
         hashMap.put(1,"abc");
 
         hashMap.put(2,"def");

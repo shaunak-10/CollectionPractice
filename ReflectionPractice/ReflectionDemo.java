@@ -1,11 +1,12 @@
 package ReflectionPractice;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionDemo
 {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
 
         Cat cat = new Cat("abc",10);
 
@@ -27,9 +28,25 @@ public class ReflectionDemo
 
         Method[] catMethods = cat.getClass().getDeclaredMethods();
 
-        for(Method method: catMethods)
+        for (Method method: catMethods)
         {
-            System.out.println(method.getName());
+            if(method.getName().equals("heyThisIsPrivate"))
+            {
+                method.setAccessible(true);
+
+                method.invoke(cat);
+            }
+
+            if(method.getName().equals("thisIsAPublicStaticMethod"))
+            {
+                method.invoke(null);
+            }
+
+            if(method.getName().equals("thisIsAPrivateStaticMethod"))
+            {
+                method.setAccessible(true);
+                method.invoke(null);
+            }
         }
 
 
