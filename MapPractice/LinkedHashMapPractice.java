@@ -26,7 +26,7 @@ public class LinkedHashMapPractice
         doubly linked list present internally
         overhead little higher beacuse of linked list, still all the operations are O(1)
         memory consumption also a little higher than regular HashMap
-        access order true means the thread which was accessed latest is placed in the end, so the least recently used
+        access order true means the element which was accessed latest is placed in the end, so the least recently used
          element will be on the top i.e. the oldest used object
          */
         LinkedHashMap<String,Integer> linkedHashMap = new LinkedHashMap<>(10,0.8f,true);
